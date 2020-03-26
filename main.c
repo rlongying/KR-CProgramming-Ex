@@ -13,7 +13,9 @@ void test_ch2() {
 void test_ch3() {
 //    test_binary_search();
 //    test_escape();
-    test_expand();
+//    test_expand();
+//    test_itoa();
+    test_itob();
 }
 
 int main() {

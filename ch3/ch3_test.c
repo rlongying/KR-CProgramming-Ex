@@ -126,3 +126,59 @@ void test_expand() {
     }
 }
 
+void test_itoa() {
+    int total = 0, failed = 0, passed = 0;
+    char buffer[20];
+    int tests[BUFFER];
+    tests[0] = INT_MIN;
+    for(int i = 1; i < BUFFER - 1; ++i) {
+        tests[i] = i - BUFFER / 2;
+    }
+    tests[BUFFER - 1] = INT_MAX;
+
+    for(int i = 0; i < BUFFER; ++i) {
+//        printf("Origin: %d\n", tests[i]);
+        itoa(tests[i], buffer);
+//        printf("Buffer : %s\n", buffer);
+
+        int exp = atoi(buffer);
+
+        if(exp == tests[i]) {
+            ++passed;
+        }else {
+            ++failed;
+        }
+        ++total;
+    }
+
+    printf("%d total tests, %d passed, %d failed", total, passed, failed);
+}
+/*
+Decimal 255 in base 2  : 11111111
+Decimal 255 in base 3  : 100110
+Decimal 255 in base 4  : 3333
+Decimal 255 in base 5  : 2010
+Decimal 255 in base 6  : 1103
+Decimal 255 in base 7  : 513
+Decimal 255 in base 8  : 377
+Decimal 255 in base 9  : 313
+Decimal 255 in base 10 : 255
+Decimal 255 in base 11 : 212
+Decimal 255 in base 12 : 193
+Decimal 255 in base 13 : 168
+Decimal 255 in base 14 : 143
+Decimal 255 in base 15 : 120
+Decimal 255 in base 16 : FF
+Cannot support base 17 (2 - 16)
+ */
+void test_itob() {
+    char buffer[10];
+    int i;
+    int n = -32;
+
+    for ( i = 2; i <= 20; ++i ) {
+        itob(n, buffer, i);
+        printf("Decimal %d in base %-2d : %s\n", n, i, buffer);
+    }
+}
+

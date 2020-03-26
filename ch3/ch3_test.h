@@ -12,5 +12,7 @@
 void test_binary_search();
 void test_escape();
 void test_expand();
+void test_itoa();
+void test_itob();
 
 #endif //KR_CPROGRAMMING_CH3_TEST_H

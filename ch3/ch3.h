@@ -8,6 +8,8 @@
 #include <ctype.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
+#include <limits.h>
 /**
  * binary search
  * @param x element to search for
@@ -27,5 +29,23 @@ void escape(const char* s, char* t);
 void reverse_escape(const char* s, char* t);
 
 void expand(char* s1, char* s2);
+
+/**
+ * convert string to integer
+ * @param n
+ * @param s
+ */
+void itoa(int n, char s[]);
+
+void reverse(char s[]);
+
+/**
+ * convert the integer n into a base b character representation in the string s
+ * @param n assume n is two's compliment encoded
+ * @param s
+ * @param b 2 - 16
+ */
+void itob(int n, char s[], unsigned b);
+
 
 #endif //KR_CPROGRAMMING_CH3_H

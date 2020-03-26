@@ -108,3 +108,63 @@ void expand(char *s1, char *s2) {
     }
     s2[j] = '\0'; // don't forget the terminating null
 }
+
+void reverse(char s[]) {
+    char c;
+    for (unsigned long i = 0, j = strlen(s) - 1; i < j; ++i, --j) {
+        c = s[j];
+        s[j] = s[i];
+        s[i] = c;
+    }
+}
+
+void itoa(int n, char *s) {
+    int i, sign;
+    int is_int_min = 0;
+
+    // handle INT_MIN to avoid overflow when converting INT_MIN to positive
+    if (n == INT_MIN) {
+        n += 1;
+        is_int_min = 1;
+    }
+
+    if ((sign = n) < 0) { // record sign
+        n = -n; // make n positive
+    }
+    i = 0;
+    do {
+        s[i++] = n % 10 + '0'; // record number in reverse order
+    } while ((n /= 10) > 0);
+
+    if (sign < 0) {
+        s[i++] = '-';
+    }
+
+    s[i] = '\0';
+    reverse(s);
+    if (is_int_min) {
+        s[i - 1] += 1;
+    }
+}
+
+void itob(int n, char *s, unsigned b) {
+
+    if( b < 2 || b > 16) {
+        fprintf(stderr, "Cannot support base %d (2 - 16)\n", b);
+        exit(EXIT_FAILURE);
+    }
+
+    char letters[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+
+    if(n < 0) {
+        n = ~(-n) + 1;
+    }
+
+    int i = 0;
+    do {
+       s[i++] = letters[n % b];
+    }while(n /= b);
+
+    s[i] = '\0';
+    reverse(s);
+}
