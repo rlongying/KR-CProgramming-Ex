@@ -5,6 +5,9 @@
 #ifndef KR_CPROGRAMMING_CH3_H
 #define KR_CPROGRAMMING_CH3_H
 
+#include <ctype.h>
+#include <stdio.h>
+#include <string.h>
 /**
  * binary search
  * @param x element to search for

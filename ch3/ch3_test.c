@@ -91,4 +91,38 @@ void test_escape() {
     reverse_escape(t, s);
     printf("\n%s\n", s);
 }
+/*
+Unexpanded: a-z-
+Expanded  : abcdefghijklmnopqrstuvwxyz-
+Unexpanded: z-a-
+Expanded  : zyxwvutsrqponmlkjihgfedcba-
+Unexpanded: -1-6-
+Expanded  : -123456-
+Unexpanded: a-ee-a
+Expanded  : abcdeedcba
+Unexpanded: a-R-L
+Expanded  : a-RQPONML
+Unexpanded: 1-9-1
+Expanded  : 123456789987654321
+Unexpanded: 5-5
+Expanded  : 5
+EX3_3: Mismatched operands 'a-R'
+ */
+void test_expand() {
+    char *s[] = {"a-z-", "z-a-", "-1-6-",
+                 "a-ee-a", "a-R-L", "1-9-1",
+                 "5-5", NULL};
+    char result[100];
+    int i = 0;
+
+    while (s[i]) {
+
+        /*  Expand and print the next string in our array s[]  */
+
+        expand(s[i], result);
+        printf("Unexpanded: %s\n", s[i]);
+        printf("Expanded  : %s\n", result);
+        ++i;
+    }
+}
 

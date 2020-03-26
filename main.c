@@ -12,7 +12,8 @@ void test_ch2() {
 
 void test_ch3() {
 //    test_binary_search();
-    test_escape();
+//    test_escape();
+    test_expand();
 }
 
 int main() {

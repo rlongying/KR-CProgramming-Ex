@@ -11,5 +11,6 @@
 
 void test_binary_search();
 void test_escape();
+void test_expand();
 
 #endif //KR_CPROGRAMMING_CH3_TEST_H
