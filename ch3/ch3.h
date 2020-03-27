@@ -10,6 +10,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <limits.h>
+
 /**
  * binary search
  * @param x element to search for
@@ -25,10 +26,11 @@ int binary_search(int x, const int v[], int n);
  * @param s
  * @param t
  */
-void escape(const char* s, char* t);
-void reverse_escape(const char* s, char* t);
+void escape(const char *s, char *t);
 
-void expand(char* s1, char* s2);
+void reverse_escape(const char *s, char *t);
+
+void expand(char *s1, char *s2);
 
 /**
  * convert string to integer
@@ -46,6 +48,18 @@ void reverse(char s[]);
  * @param b 2 - 16
  */
 void itob(int n, char s[], unsigned b);
+
+/*
+ * search for the rightmost occurrence of t in s
+ * @return -1 if not found, otherwise the rightmost position
+ */
+int strrindex(char *s, char *t);
+
+/**
+ * converts string to double, could handle scientific notation 123.45e-6
+ * @return
+ */
+double atof2(char []);
 
 
 #endif //KR_CPROGRAMMING_CH3_H

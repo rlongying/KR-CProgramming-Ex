@@ -15,7 +15,9 @@ void test_ch3() {
 //    test_escape();
 //    test_expand();
 //    test_itoa();
-    test_itob();
+//    test_itob();
+//    test_strrindex();
+    test_atof2();
 }
 
 int main() {

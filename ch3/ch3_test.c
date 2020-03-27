@@ -91,6 +91,7 @@ void test_escape() {
     reverse_escape(t, s);
     printf("\n%s\n", s);
 }
+
 /*
 Unexpanded: a-z-
 Expanded  : abcdefghijklmnopqrstuvwxyz-
@@ -131,21 +132,21 @@ void test_itoa() {
     char buffer[20];
     int tests[BUFFER];
     tests[0] = INT_MIN;
-    for(int i = 1; i < BUFFER - 1; ++i) {
+    for (int i = 1; i < BUFFER - 1; ++i) {
         tests[i] = i - BUFFER / 2;
     }
     tests[BUFFER - 1] = INT_MAX;
 
-    for(int i = 0; i < BUFFER; ++i) {
+    for (int i = 0; i < BUFFER; ++i) {
 //        printf("Origin: %d\n", tests[i]);
         itoa(tests[i], buffer);
 //        printf("Buffer : %s\n", buffer);
 
         int exp = atoi(buffer);
 
-        if(exp == tests[i]) {
+        if (exp == tests[i]) {
             ++passed;
-        }else {
+        } else {
             ++failed;
         }
         ++total;
@@ -153,6 +154,7 @@ void test_itoa() {
 
     printf("%d total tests, %d passed, %d failed", total, passed, failed);
 }
+
 /*
 Decimal 255 in base 2  : 11111111
 Decimal 255 in base 3  : 100110
@@ -176,9 +178,56 @@ void test_itob() {
     int i;
     int n = -32;
 
-    for ( i = 2; i <= 20; ++i ) {
+    for (i = 2; i <= 20; ++i) {
         itob(n, buffer, i);
         printf("Decimal %d in base %-2d : %s\n", n, i, buffer);
     }
+}
+
+void test_strrindex() {
+    TEST test[] =
+            {
+                    {"Hello world",                        "o", 7},
+                    {"This string is littered with iiiis", "i", 32},
+                    {"No 'see' letters in here",           "c", -1}
+            };
+
+    size_t numtests = sizeof test / sizeof test[0];
+    size_t i;
+
+    char ch = 'o';
+    int pos;
+
+    for (i = 0; i < numtests; i++) {
+        pos = strrindex(test[i].data, test[i].testchar);
+
+        printf("Searching %s for last occurrence of %s.\n",
+               test[i].data,
+               test[i].testchar);
+
+        printf("Expected result: %d\n", test[i].expected);
+        printf("%sorrect (%d).\n", pos == test[i].expected ? "C" : "Inc", pos);
+    }
+}
+
+void test_atof2() {
+    char  *strings[] = {
+            "1.0e43",
+            "999.999",
+            "123.456e-9",
+            "-1.2e-3",
+            "1.2e-3",
+            "-1.2E3",
+            "-1.2e03",
+            "cat",
+            "",
+            0
+    };
+    int             i = 0;
+    for (; *strings[i]; i++) {
+        printf("atof(%s) = %f\n", strings[i], atof(strings[i]));
+        printf("atof2(%s) = %f\n", strings[i], atof2(strings[i]));
+    }
+
 }
 
