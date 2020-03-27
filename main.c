@@ -1,5 +1,6 @@
 //#include "ch2/ch2_test.h"  // exercises for chapter 2
-#include "ch3/ch3_test.h"  // exercises for chapter 3
+//#include "ch3/ch3_test.h"  // exercises for chapter 3
+#include "ch4/ch4_test.h"  // exercises for chapter 4
 
 void test_ch2() {
     //    print_type_range();
@@ -16,13 +17,17 @@ void test_ch3() {
 //    test_expand();
 //    test_itoa();
 //    test_itob();
-//    test_strrindex();
+
+}
+
+void test_ch4() {
+    //    test_strrindex();
     test_atof2();
 }
 
 int main() {
 //    test_ch2();
-    test_ch3();
+    test_ch4();
 
 
     return 0;
