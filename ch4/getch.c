@@ -6,8 +6,8 @@
 
 #define BUFFSIZE 100 /* buffer size for ungetch */
 
-char buf[BUFFSIZE]; /* buffer for ungetch */
-int bufp = 0; /* next free position in buf */
+static char buf[BUFFSIZE]; /* buffer for ungetch */
+static int bufp = 0; /* next free position in buf */
 
 int getch(void) {
     return (bufp > 0) ? buf[--bufp] : getchar();

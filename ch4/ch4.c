@@ -81,3 +81,38 @@ double atof2(char *s) {
     return sign * val / power;
 }
 
+char* itoa2(int n, char* s) {
+    static int sign = 0; //
+    static int i = 0;
+
+    if (0 == sign) {
+       sign = (n < 0) ? -1 : 1;
+       i = 0;
+       if(sign < 0) {
+           s[i++] = '-' ;
+       }
+    }
+
+    if (n / 10) {
+        itoa2(n / 10, s);
+    }
+
+    sign = (sign != 0) ? 0 : sign;
+
+    s[i++] = abs(n % 10) + '0';
+    s[i] = '\0';
+    return s;
+}
+
+void reverse2(char s[]) {
+    static int l = 0, r;
+
+    if(s[l] != '\0') {
+        char c = s[l++];
+        reverse2(s);
+        s[r - l] = c;
+        --l;
+    } else {
+        r = l;
+    }
+}

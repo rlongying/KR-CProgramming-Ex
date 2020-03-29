@@ -25,7 +25,9 @@ void calculator(void);
 void test_ch4() {
     //    test_strrindex();
 //    test_atof2();
-    calculator();
+//    calculator();
+//    test_itoa2();
+    test_reverse2();
 }
 
 int main() {

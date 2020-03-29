@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <limits.h>
 
 typedef struct TEST
 {
@@ -19,5 +20,7 @@ typedef struct TEST
 
 void test_strrindex(void);
 void test_atof2(void);
+void test_itoa2();
+void test_reverse2();
 
 #endif //KR_CPROGRAMMING_CH4_TEST_H

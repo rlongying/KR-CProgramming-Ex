@@ -20,5 +20,13 @@ int strrindex(char *s, char *t);
  */
 double atof2(char []);
 
+/**
+ * recursive version of converting integer to string
+ * @param n
+ * @param s
+ */
+char* itoa2(int n, char s[]);
+
+void reverse2(char s[]);
 
 #endif //KR_CPROGRAMMING_CH4_H
