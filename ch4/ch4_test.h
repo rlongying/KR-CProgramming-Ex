@@ -7,6 +7,8 @@
 
 #include "ch4.h"
 #include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
 
 typedef struct TEST
 {
@@ -15,7 +17,7 @@ typedef struct TEST
     int expected;
 } TEST;
 
-void test_strrindex();
-void test_atof2();
+void test_strrindex(void);
+void test_atof2(void);
 
 #endif //KR_CPROGRAMMING_CH4_TEST_H

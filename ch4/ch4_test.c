@@ -4,8 +4,7 @@
 
 #include "ch4_test.h"
 
-
-void test_strrindex() {
+void test_strrindex(void) {
     TEST test[] =
             {
                     {"Hello world",                        "o", 7},
@@ -31,8 +30,8 @@ void test_strrindex() {
     }
 }
 
-void test_atof2() {
-    char  *strings[] = {
+void test_atof2(void) {
+    char *strings[] = {
             "1.0e43",
             "999.999",
             "123.456e-9",
@@ -44,7 +43,7 @@ void test_atof2() {
             "",
             0
     };
-    int             i = 0;
+    int i = 0;
     for (; *strings[i]; i++) {
         printf("atof(%s) = %f\n", strings[i], atof(strings[i]));
         printf("atof2(%s) = %f\n", strings[i], atof2(strings[i]));

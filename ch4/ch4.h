@@ -7,6 +7,7 @@
 
 #include <stdlib.h>
 #include <ctype.h>
+
 /*
  * search for the rightmost occurrence of t in s
  * @return -1 if not found, otherwise the rightmost position
@@ -18,5 +19,6 @@ int strrindex(char *s, char *t);
  * @return
  */
 double atof2(char []);
+
 
 #endif //KR_CPROGRAMMING_CH4_H

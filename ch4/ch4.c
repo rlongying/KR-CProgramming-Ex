@@ -35,48 +35,49 @@ double atof2(char *s) {
     }
 
     // add integer part
-    while(isdigit(s[i])) {
+    while (isdigit(s[i])) {
         val = val * 10 + (s[i] - '0');
         ++i;
     }
 
     // looking for decimal point
     power = 1.0;
-    if(s[i] == '.') {
+    if (s[i] == '.') {
         ++i;
         // add fractional part
-        while(isdigit(s[i])) {
+        while (isdigit(s[i])) {
             val = val * 10 + (s[i] - '0');
             ++i;
             power *= 10;
         }
     }
     // looking for scientific notation
-    if(s[i] == 'e' || s[i] == 'E') {
+    if (s[i] == 'e' || s[i] == 'E') {
         ++i;
         int neg_exp = 0;
-        if(s[i] == '-') {
+        if (s[i] == '-') {
             neg_exp = 1;
         }
-        if(s[i] == '-' || s[i] == '+') {
+        if (s[i] == '-' || s[i] == '+') {
             ++i;
         }
 
         int exp = 0;
-        while(isdigit(s[i])) {
+        while (isdigit(s[i])) {
             exp = exp * 10 + (s[i] - '0');
             ++i;
         }
 
-        if(neg_exp) {
-            for(; exp > 0; --exp) {
+        if (neg_exp) {
+            for (; exp > 0; --exp) {
                 val /= 10;
             }
-        }else {
-            for(; exp > 0; --exp) {
+        } else {
+            for (; exp > 0; --exp) {
                 val *= 10;
             }
         }
     }
     return sign * val / power;
 }
+

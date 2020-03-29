@@ -20,15 +20,17 @@ void test_ch3() {
 
 }
 
+void calculator(void);
+
 void test_ch4() {
     //    test_strrindex();
-    test_atof2();
+//    test_atof2();
+    calculator();
 }
 
 int main() {
 //    test_ch2();
     test_ch4();
-
 
     return 0;
 }
