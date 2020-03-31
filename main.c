@@ -62,7 +62,9 @@ void test_ch5() {
 //    test_getfloat();
 //    test_pointer_association();
 //    test_pointer_array();
-    test_strcat_p();
+//    test_strcat_p();
+//    test_strend();
+    test_sort_lines();
 }
 
 int main() {
@@ -70,6 +72,7 @@ int main() {
 //    test_ch4();
 //    test_swap();
     test_ch5();
+
 
     return 0;
 }
