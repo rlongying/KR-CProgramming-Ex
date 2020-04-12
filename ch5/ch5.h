@@ -66,5 +66,23 @@ int readlines(char *lineptr[], int maxlines);
 void writelines(char *lineptr[], int nlines);
 void qsort_2(char *v[], int left, int right);
 
+/**
+ * calculate the day of the year from given year and month
+ * @param year
+ * @param month 1 - 12
+ * @param day
+ * @return day of the year, or -1 if input is illegal
+ */
+int day_of_year(int year, int month, int day);
+
+/**
+ * calculate month and day from given year and yearday
+ * @param year
+ * @param yearday
+ * @param pmonth store the month,
+ * @param pday store the day,
+ */
+int month_day(int year, int yearday, int *pmonth, int *pday);
+void test_day_of_year_month_day();
 
 #endif //KR_CPROGRAMMING_CH5_H

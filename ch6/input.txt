@@ -1,0 +1,4 @@
+
+if auto do while if for short int signed unsigned
+unsigned auto int do char long
+register auto

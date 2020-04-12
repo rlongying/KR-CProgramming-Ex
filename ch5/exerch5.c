@@ -204,3 +204,98 @@ void qsort_2(char *v[], int left, int right) {
     qsort_2(v, left, last - 1);
     qsort_2(v, last + 1, right);
 }
+
+
+static char daytab[][13] = {
+        {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}, /* non leap year */
+        {0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31} /* leap year */
+};
+
+int day_of_year(int year, int month, int day) {
+    int i, leap;
+
+    if(year < 1752 || month < 1 || month > 12 || day < 1 ) {
+        // not a valid year or month
+        return -1;
+    }
+
+    leap = (year % 4 == 0 && year % 100 != 0) || year % 400 == 0;
+
+    if( day > daytab[leap][month]) {
+        // not a valid day
+        return -1;
+    }
+
+    for(i = 1; i < month; ++i) {
+        day += daytab[leap][i];
+    }
+    return day;
+}
+int day_of_year_p(int year, int month, int day) {
+    int i, leap;
+
+    if(year < 1752 || month < 1 || month > 12 || day < 1 ) {
+        // not a valid year or month
+        return -1;
+    }
+
+    leap = (year % 4 == 0 && year % 100 != 0) || year % 400 == 0;
+
+    if( day > *(daytab[leap] + month)) {
+        // not a valid day
+        return -1;
+    }
+
+    for(i = 1; i < month; ++i) {
+        day += *(daytab[leap] + i);
+    }
+    return day;
+}
+
+int month_day(int year, int yearday, int *pmonth, int *pday) {
+
+    if(year < 1752 || yearday < 1) {
+        // not a valid year or month
+        return -1;
+    }
+
+    int i, leap;
+
+    leap = (year % 4 == 0 && year % 100 != 0) || year % 400 == 0;
+    for(i = 1; i <= 12 && yearday > daytab[leap][i]; ++i) {
+        yearday -= daytab[leap][i];
+    }
+
+    // if i >= 13, yearday exceeds the max day of that year
+    if(i < 13) {
+        *pmonth = i;
+        *pday = yearday;
+    }else {
+        return -1;
+    }
+    return 0;
+}
+
+int month_day_p(int year, int yearday, int *pmonth, int *pday) {
+
+    if(year < 1752 || yearday < 1) {
+        // not a valid year or month
+        return -1;
+    }
+
+    int i, leap;
+
+    leap = (year % 4 == 0 && year % 100 != 0) || year % 400 == 0;
+    for(i = 1; i <= 12 && yearday > daytab[leap][i]; ++i) {
+        yearday -= daytab[leap][i];
+    }
+
+    // if i >= 13, yearday exceeds the max day of that year
+    if(i < 13) {
+        *pmonth = i;
+        *pday = yearday;
+    }else {
+        return -1;
+    }
+    return 0;
+}
