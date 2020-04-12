@@ -2,7 +2,8 @@
 //#include "ch3/ch3_test.h"  // exercises for chapter 3
 //#include "ch4/ch4_test.h"  // exercises for chapter 4
 //#include "ch5/ch5.h" // exercises for chapter 5
-#include "ch6/ch6.h" // exercises for chapter 5
+//#include "ch6/ch6.h" // exercises for chapter 6
+#include "ch7/ch7.h" // exercises for chapter 7
 
 #define swap(t, x, y) {t tmp = x; x = y, y = tmp;} /* swap x, y of type t */
 
@@ -72,7 +73,12 @@ void test_ch5() {
 void test_ch6() {
 //    test_parse_keyword();
 //    test_parse_keyword_p();
-    test_binary_tree();
+//    test_binary_tree();
+}
+
+void test_ch7(int argc, char *argv[]) {
+    printf("%s", get_program_name(argv[0]));
+    convert_characters(argc, argv);
 }
 
 int main(int argc, char *argv[]) {
@@ -80,8 +86,8 @@ int main(int argc, char *argv[]) {
 //    test_ch4();
 //    test_swap();
 //    test_ch5();
-    test_ch6();
-
+//    test_ch6();
+    test_ch7(argc, argv);
 
     return 0;
 }
