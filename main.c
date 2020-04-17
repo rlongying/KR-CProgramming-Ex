@@ -4,6 +4,7 @@
 //#include "ch5/ch5.h" // exercises for chapter 5
 //#include "ch6/ch6.h" // exercises for chapter 6
 #include "ch7/ch7.h" // exercises for chapter 7
+#include "heap_sort.h"
 
 #define swap(t, x, y) {t tmp = x; x = y, y = tmp;} /* swap x, y of type t */
 
@@ -77,8 +78,14 @@ void test_ch6() {
 }
 
 void test_ch7(int argc, char *argv[]) {
-    printf("%s", get_program_name(argv[0]));
-    convert_characters(argc, argv);
+//    printf("%s", get_program_name(argv[0]));
+//    convert_characters(argc, argv);
+    int num;
+    char fmt[100];
+    char res[100];
+    strcpy(fmt, "%s");
+    miniscanf(fmt, res);
+    printf(strcat(fmt, " is the value"), res);
 }
 
 int main(int argc, char *argv[]) {
@@ -87,7 +94,10 @@ int main(int argc, char *argv[]) {
 //    test_swap();
 //    test_ch5();
 //    test_ch6();
-    test_ch7(argc, argv);
+//    test_ch7(argc, argv);
+//    test_last_stone();
+
+    print_diff_line(argc, argv);
 
     return 0;
 }

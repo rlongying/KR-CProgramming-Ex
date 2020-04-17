@@ -12,6 +12,7 @@ double pop();
 void push(double f);
 
 int getop(char s[]);
+int getop_2(char s[]);
 
 int getch(void);
 

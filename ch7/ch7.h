@@ -17,5 +17,12 @@
 char *get_program_name(char *s);
 void convert_characters(int argc, char *argv[]);
 
+void minprintf(char *fmt, ...);
+
+void miniscanf(char *fmt, ...);
+
+// read two filenames from command line, and print first different line
+void print_diff_line(int argc, char *argv[]);
+
 
 #endif //KR_CPROGRAMMING_CH7_H
