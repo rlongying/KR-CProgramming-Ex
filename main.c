@@ -3,8 +3,10 @@
 //#include "ch4/ch4_test.h"  // exercises for chapter 4
 //#include "ch5/ch5.h" // exercises for chapter 5
 //#include "ch6/ch6.h" // exercises for chapter 6
-#include "ch7/ch7.h" // exercises for chapter 7
-#include "heap_sort.h"
+//#include "ch7/ch7.h" // exercises for chapter 7
+#include "ch8/ch8.h"
+//#include "heap_sort.h"
+#include <stdlib.h>
 
 #define swap(t, x, y) {t tmp = x; x = y, y = tmp;} /* swap x, y of type t */
 
@@ -80,12 +82,7 @@ void test_ch6() {
 void test_ch7(int argc, char *argv[]) {
 //    printf("%s", get_program_name(argv[0]));
 //    convert_characters(argc, argv);
-    int num;
-    char fmt[100];
-    char res[100];
-    strcpy(fmt, "%s");
-    miniscanf(fmt, res);
-    printf(strcat(fmt, " is the value"), res);
+//    test_hash_tab();
 }
 
 int main(int argc, char *argv[]) {
@@ -96,8 +93,9 @@ int main(int argc, char *argv[]) {
 //    test_ch6();
 //    test_ch7(argc, argv);
 //    test_last_stone();
+//    print_diff_line(argc, argv);
+    mycat(argc, argv);
 
-    print_diff_line(argc, argv);
-
+    return 0;
     return 0;
 }

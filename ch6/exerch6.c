@@ -165,7 +165,7 @@ struct nlist *install(char *name, char *def) {
         if (np == NULL || (np->name = strdup_2(name)) == NULL || (np->def == strdup_2(def)) == NULL)
             return NULL;
         int hashval = hash(name);
-        // insert at the beginning of the existing list
+        // insert_word at the beginning of the existing list
         np->next = hashtab[hashval];
         hashtab[hashval] = np;
 

@@ -4,6 +4,7 @@
 
 #include "ch7.h"
 #include <stdarg.h>
+#include <stdlib.h>
 
 char *get_program_name(char *s) {
     char *p;
@@ -153,4 +154,49 @@ void print_diff_line(int argc, char *argv[]) {
         }
 
     }
+}
+
+#define MAXWORD 128 /* max number of words */
+
+cnode *wtab[MAXWORD]; // a lookup table to store words
+
+static unsigned int hash_2(const char *s) {
+    unsigned hashval;
+    char *p;
+    for(hashval = 0; *s; s++) {
+        hashval = hashval * 31 + (*s);
+    }
+    return hashval % MAXWORD;
+}
+
+cnode *contains(const char *s) {
+    cnode *p;
+    for(p = wtab[hash_2(s)]; p != NULL; p = p->next) {
+        if(0 == strcmp(p->word, s)) {
+            return p;
+        }
+    }
+    return NULL;
+}
+
+cnode *insert_word(const char *s) {
+    cnode *p;
+    if((p = contains(s)) == NULL) {
+        // not exist, add
+        p = (cnode *)malloc(sizeof(cnode));
+        char *str;
+        if(p != NULL && (str = (char *)malloc(strlen(s) + 1)) != NULL) {
+            unsigned hashval = hash_2(s);
+            strcpy(str, s);
+            p->word = str;
+            p->count = 1;
+            p->next = wtab[hashval]; // insert_word p at the beginning of list
+            wtab[hashval] = p;
+            return p;
+        }
+        return NULL;
+    }else {
+        p->count++;
+    }
+    return NULL;
 }
